@@ -2,568 +2,201 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#101116">
-    <meta name="description" content="เว็บไซต์ Portfolio ตัวอย่างภาษาไทย ปรับแต่งข้อมูลและผลงานของคุณได้">
-    <title>Portfolio — พื้นที่ทดลอง</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำตัวของฉัน</title>
+    
+    <!-- นำเข้าฟอนต์สวยๆ จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            color-scheme: dark;
-            --background: #101116;
-            --surface: #181a21;
-            --surface-light: #20232c;
-            --text: #f3f1ec;
-            --muted: #9a9ba6;
-            --accent: #c5f467;
-            --line: rgba(243, 241, 236, 0.12);
-            --mono: "DM Mono", monospace;
-            --sans: "Prompt", sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* ส่วนของการตกแต่ง (CSS) */
         body {
+            font-family: 'Kanit', sans-serif;
             margin: 0;
-            background:
-                radial-gradient(ellipse at 82% 10%, rgba(108, 125, 68, 0.13), transparent 34rem),
-                var(--background);
-            color: var(--text);
-            font-family: var(--sans);
-            line-height: 1.7;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
         }
 
-        a {
-            color: inherit;
+        /* หัวเว็บไซต์ */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
         }
 
-        .shell {
-            width: min(1120px, calc(100% - 48px));
-            margin-inline: auto;
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
 
-        .topbar {
-            min-height: 84px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--line);
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-family: var(--mono);
-            font-size: 0.82rem;
-            letter-spacing: 0.06em;
-            text-decoration: none;
+        /* กล่องคอนเทนเนอร์หลัก */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .brand-mark {
-            width: 30px;
-            height: 30px;
-            display: grid;
-            place-items: center;
-            border-radius: 9px;
-            background: var(--accent);
-            color: var(--background);
-            font-family: var(--sans);
-            font-weight: 700;
+        /* ส่วนแนะนำตัว */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 30px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: color 160ms ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a:focus-visible {
-            color: var(--accent);
-        }
-
-        .hero {
-            min-height: 590px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: 48px;
-            padding-block: 86px;
-        }
-
-        .eyebrow,
-        .section-index,
-        .project-type,
-        .status {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--accent);
-        }
-
-        .eyebrow::before {
-            width: 7px;
-            height: 7px;
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd; /* สีเทาแทนรูป */
             border-radius: 50%;
-            background: var(--accent);
-            content: "";
-            box-shadow: 0 0 14px rgba(197, 244, 103, 0.7);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            max-width: 720px;
-            margin: 22px 0;
-            font-size: clamp(2.8rem, 6vw, 5.2rem);
-            font-weight: 500;
-            letter-spacing: -0.055em;
-            line-height: 1.2;
+        /* ส่วนเนื้อหา */
+        .section-title {
+            color: #2575fc;
+            font-weight: 600;
+            margin-top: 20px;
+            display: block;
         }
 
-        h1 span {
-            color: var(--accent);
+        .info-item {
+            margin-bottom: 15px;
         }
 
-        .hero-copy {
-            max-width: 540px;
-            margin: 0;
-            color: var(--muted);
-            font-size: 1.04rem;
+        .info-label {
+            font-weight: bold;
+            color: #555;
         }
 
-        .hero-actions {
+        /* ตารางทักษะ */
+        .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 32px;
-        }
-
-        .button {
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             gap: 10px;
-            padding: 0 20px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
+        }
+
+        .skill-tag {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
             font-size: 0.9rem;
+        }
+
+        /* ส่วนติดต่อ */
+        .contact-btn {
+            display: inline-block;
+            background-color: #6a11cb;
+            color: white;
+            padding: 12px 25px;
             text-decoration: none;
-            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
         }
 
-        .button:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        .button-primary {
-            border-color: var(--accent);
-            background: var(--accent);
-            color: var(--background);
-            font-weight: 600;
-        }
-
-        .button-primary:hover {
-            background: #d3ff83;
-        }
-
-        .hero-art {
-            position: relative;
-            min-height: 330px;
-            display: grid;
-            place-items: center;
-        }
-
-        .orbit {
-            position: absolute;
-            width: min(290px, 72vw);
-            aspect-ratio: 1;
-            border: 1px solid rgba(197, 244, 103, 0.18);
-            border-radius: 50%;
-        }
-
-        .orbit::before,
-        .orbit::after {
-            position: absolute;
-            border: 1px solid rgba(243, 241, 236, 0.09);
-            border-radius: 50%;
-            content: "";
-            inset: 20px;
-        }
-
-        .orbit::after {
-            inset: 42px;
-        }
-
-        .monogram {
-            z-index: 1;
-            width: 184px;
-            height: 184px;
-            display: grid;
-            place-items: center;
-            border: 1px solid rgba(197, 244, 103, 0.45);
-            border-radius: 42px;
-            background: linear-gradient(145deg, #252b21, #17191e 70%);
-            color: var(--accent);
-            font-family: var(--mono);
-            font-size: 4rem;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-            transform: rotate(-8deg);
-        }
-
-        .float-label {
-            position: absolute;
-            right: 0;
-            bottom: 30px;
-            padding: 9px 13px;
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            background: var(--surface);
-            color: var(--muted);
-            font-family: var(--mono);
-            font-size: 0.7rem;
-        }
-
-        .section {
-            padding-block: 72px;
-            border-top: 1px solid var(--line);
-            scroll-margin-top: 24px;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 24px;
-            margin-bottom: 28px;
-        }
-
-        .section-index {
-            color: var(--accent);
-        }
-
-        h2 {
-            margin: 8px 0 0;
-            font-size: clamp(1.7rem, 3vw, 2.4rem);
-            font-weight: 500;
-            letter-spacing: -0.035em;
-        }
-
-        .section-note {
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .about-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 36px;
-            padding: 30px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--surface), rgba(24, 26, 33, 0.52));
-        }
-
-        .about-card p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .about-card strong {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            color: var(--muted);
-            letter-spacing: 0.04em;
-        }
-
-        .status::before {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent);
-            content: "";
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .project-card {
-            min-height: 230px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 22px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface);
-            transition: transform 180ms ease, border-color 180ms ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(197, 244, 103, 0.48);
-        }
-
-        .project-type {
-            color: var(--accent);
-        }
-
-        .project-card h3 {
-            margin: 26px 0 5px;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        .project-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .project-arrow {
-            align-self: flex-end;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .contact-panel {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-            padding: 34px;
-            border: 1px solid rgba(197, 244, 103, 0.25);
-            border-radius: 12px;
-            background: radial-gradient(ellipse at 100% 0%, rgba(197, 244, 103, 0.09), transparent 55%), var(--surface);
-        }
-
-        .contact-panel p {
-            max-width: 540px;
-            margin: 10px 0 0;
-            color: var(--muted);
+        .contact-btn:hover {
+            background-color: #500a9e;
         }
 
         footer {
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            padding-block: 28px;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-family: var(--mono);
-            font-size: 0.72rem;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 40px;
         }
 
-        :focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 4px;
-        }
-
-        @media (max-width: 760px) {
-            .hero {
-                min-height: auto;
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding-block: 72px 42px;
-            }
-
-            .hero-art {
-                min-height: 280px;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                min-height: 190px;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .shell {
-                width: min(100% - 32px, 1120px);
-            }
-
-            .topbar {
-                min-height: 70px;
-            }
-
-            .nav-links {
-                gap: 16px;
-            }
-
-            .nav-links a {
-                font-size: 0.78rem;
-            }
-
-            h1 {
-                font-size: clamp(2.55rem, 13vw, 4rem);
-            }
-
-            .about-card,
-            .contact-panel {
-                grid-template-columns: 1fr;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 23px;
-            }
-
-            .section {
-                padding-block: 54px;
-            }
-
-            .section-heading {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 6px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
+        /* ปรับแต่งสำหรับมือถือ */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .container { padding: 20px; margin: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="shell">
-        <header class="topbar">
-            <a class="brand" href="#" aria-label="กลับไปด้านบน">
-                <span class="brand-mark" aria-hidden="true">P</span>
-                <span>PORTFOLIO / 01</span>
-            </a>
-            <nav class="nav-links" aria-label="เมนูหลัก">
-                <a href="#about">เกี่ยวกับ</a>
-                <a href="#works">ผลงาน</a>
-                <a href="#contact">ติดต่อ</a>
-            </nav>
-        </header>
 
-        <main>
-            <section class="hero" aria-labelledby="hero-title">
-                <div>
-                    <span class="eyebrow">PERSONAL WEBSITE · DEMO</span>
-                    <h1 id="hero-title">พื้นที่เล็ก ๆ<br>สำหรับ <span>ไอเดียใหญ่</span></h1>
-                    <p class="hero-copy">เว็บไซต์ Portfolio ตัวอย่างสำหรับทดลองใช้งาน ปรับแต่งชื่อ เรื่องราว ทักษะ และผลงานให้เป็นแบบของคุณได้ในภายหลัง</p>
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="#works">ดูตัวอย่างผลงาน <span aria-hidden="true">↘</span></a>
-                        <a class="button" href="#about">รู้จักเว็บไซต์นี้</a>
-                    </div>
-                </div>
-                <div class="hero-art" aria-hidden="true">
-                    <div class="orbit"></div>
-                    <div class="monogram">01</div>
-                    <span class="float-label">กำลังเตรียมข้อมูล</span>
-                </div>
-            </section>
+    <!-- ส่วนหัว -->
+    <header>
+        <h1>สวัสดีครับ ผม [ชื่อของคุณ]</h1>
+        <p>[ตำแหน่งหรือบทบาท เช่น โปรแกรมเมอร์ / นักออกแบบกราฟิก]</p>
+    </header>
 
-            <section class="section" id="about" aria-labelledby="about-title">
-                <div class="section-heading">
-                    <div>
-                        <span class="section-index">01 / ABOUT</span>
-                        <h2 id="about-title">เกี่ยวกับเว็บไซต์นี้</h2>
-                    </div>
-                    <span class="section-note">พื้นที่รอเรื่องราวของคุณ</span>
-                </div>
-                <div class="about-card">
-                    <p><strong>เริ่มต้นจากหน้าเว็บเรียบง่าย</strong><br>ตรงนี้สามารถเพิ่มชื่อ คำแนะนำตัว ประสบการณ์ และทักษะของคุณ เพื่อให้คนที่เข้ามารู้จักคุณมากขึ้น</p>
-                    <p><span class="status">DEMO VERSION</span><br><br>ตอนนี้ยังไม่ได้ใส่ข้อมูลส่วนตัว เพื่อให้ทดลองหน้าเว็บได้อย่างปลอดภัยโดยไม่มีข้อมูลสมมติปะปน</p>
-                </div>
-            </section>
+    <!-- เนื้อหาหลัก -->
+    <div class="container">
+        
+        <!-- รูปโปรไฟล์และคำทักทาย -->
+        <div class="profile-section">
+            <!-- เปลี่ยน src เป็นลิงก์รูปของคุณ หรือชื่อไฟล์รูปที่วางอยู่ด้วยกัน เช่น "photo.jpg" -->
+            <img src="https://via.placeholder.com/150" alt="รูปโปรไฟล์" class="avatar">
+            <h2>สวัสดีครับ ยินดีต้อนรับสู่หน้าเว็บไซต์ของผม</h2>
+            <p>ผมคือ [ชื่อ] ผู้หลงใหลใน [สิ่งที่ชอบ เช่น เทคโนโลยี, การวาดรูป, การเขียนบทความ] ผมมีเป้าหมายที่จะเรียนรู้สิ่งใหม่ๆ และสร้างสรรค์ผลงานที่ออกมาดีที่สุด</p>
+        </div>
 
-            <section class="section" id="works" aria-labelledby="works-title">
-                <div class="section-heading">
-                    <div>
-                        <span class="section-index">02 / SELECTED WORK</span>
-                        <h2 id="works-title">พื้นที่สำหรับผลงาน</h2>
-                    </div>
-                    <span class="section-note">ตัวอย่างรูปแบบการ์ด · ยังไม่มีผลงานจริง</span>
-                </div>
-                <div class="project-grid">
-                    <article class="project-card">
-                        <div>
-                            <span class="project-type">PROJECT / 01</span>
-                            <h3>โปรเจกต์ของคุณ</h3>
-                            <p>เพิ่มคำอธิบายสั้น ๆ เกี่ยวกับผลงานชิ้นนี้</p>
-                        </div>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </article>
-                    <article class="project-card">
-                        <div>
-                            <span class="project-type">PROJECT / 02</span>
-                            <h3>ไอเดียที่อยากเล่า</h3>
-                            <p>ใส่รายละเอียด บทบาท หรือเทคโนโลยีที่ใช้</p>
-                        </div>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </article>
-                    <article class="project-card">
-                        <div>
-                            <span class="project-type">PROJECT / 03</span>
-                            <h3>ผลงานชิ้นถัดไป</h3>
-                            <p>การ์ดนี้พร้อมเปลี่ยนเป็นผลงานจริงของคุณ</p>
-                        </div>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </article>
-                </div>
-            </section>
+        <!-- รายละเอียด -->
+        <div class="about">
+            <span class="section-title">ข้อมูลส่วนตัว</span>
+            
+            <div class="info-item">
+                <div class="info-label">📍 ที่อยู่:</div>
+                <div>กรุงเทพมหานคร, ประเทศไทย</div>
+            </div>
 
-            <section class="section" id="contact" aria-labelledby="contact-title">
-                <div class="contact-panel">
-                    <div>
-                        <span class="section-index">03 / GET IN TOUCH</span>
-                        <h2 id="contact-title">ช่องทางติดต่อ</h2>
-                        <p>เมื่อพร้อมแล้ว เพิ่มอีเมลหรือโซเชียลที่ต้องการให้แสดงได้ที่ส่วนนี้</p>
-                    </div>
-                    <span class="status">ยังไม่ได้ระบุช่องทางติดต่อ</span>
-                </div>
-            </section>
-        </main>
+            <div class="info-item">
+                <div class="info-label">🎓 การศึกษา:</div>
+                <div>[ชื่อมหาวิทยาลัย] - คณะ [ชื่อยอดคณะ]</div>
+            </div>
 
-        <footer>
-            <span>PORTFOLIO / DEMO</span>
-            <span>สร้างไว้สำหรับทดลอง · ปรับแต่งได้ตามต้องการ</span>
-        </footer>
+            <div class="info-item">
+                <div class="info-label">💼 ประสบการณ์:</div>
+                <div>[ประสบการณ์การทำงาน หรือ กิจกรรม extracurricular]</div>
+            </div>
+        </div>
+
+        <!-- ทักษะ -->
+        <span class="section-title">ทักษะ (Skills)</span>
+        <div class="skills-grid">
+            <span class="skill-tag">การเขียนโปรแกรม</span>
+            <span class="skill-tag">ภาษาอังกฤษ</span>
+            <span class="skill-tag">Photoshop</span>
+            <span class="skill-tag">Social Media Marketing</span>
+        </div>
+
+        <!-- สรรพากร / ผลงาน -->
+        <span class="section-title">ผลงานที่น่าสนใจ</span>
+        <p>1. [ชื่อโปรเจกต์ที่ 1]</p>
+        <p>2. [ชื่อโปรเจกต์ที่ 2]</p>
+
+        <!-- ปุ่มติดต่อ -->
+        <div style="margin-top: 40px; text-align: center;">
+            <h3>สนใจติดต่อได้ทาง</h3>
+            <a href="mailto:email@example.com" class="contact-btn">📧 ส่งอีเมลมาหาผม</a>
+            <br><br>
+            <a href="#" style="color: #666; text-decoration: none;">หรือทักแชท Line ได้เลยครับ</a>
+        </div>
+
     </div>
+
+    <!-- ส่วนท้าย -->
+    <footer>
+        &copy; 2023 ชื่อของคุณ. All Rights Reserved.
+    </footer>
+
 </body>
 </html>
